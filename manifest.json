@@ -2,7 +2,7 @@
     "name": "Local Ledger",
     "short_name": "Ledger",
     "description": "A simple ledger app to manage customers, stock, and transactions.",
-    "start_url": "/index.html",
+    "start_url": "/Local-Ledger/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#007bff",
