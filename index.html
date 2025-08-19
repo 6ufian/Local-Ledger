@@ -10,7 +10,7 @@
     <link rel="manifest" href="manifest.json">
 
     <!-- External CSS File -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- Google Fonts (Poppins) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -162,11 +162,11 @@
         </div>
     </div>
     <!-- External JavaScript File -->
-    <script src="js/main.js"></script>
+    <script src="main.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
+                navigator.serviceWorker.register('service-worker.js')
                     .then(registration => {
                         console.log('ServiceWorker registration successful with scope: ', registration.scope);
                     })
