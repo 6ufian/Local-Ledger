@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Ledger - Home</title>
+
+    <meta name="theme-color" content="#007bff">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- External CSS File -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Fonts (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body id="home-page"> <!-- পেজ সনাক্ত করার জন্য id -->
+
+    <div class="mobile-container">
+        <!-- Top Header -->
+        <header class="app-header">
+            <h1>Local Ledger</h1>
+            <div class="header-icons">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <a href="settings.html" style="color: inherit;"><i class="fa-solid fa-gear"></i></a>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+
+            <!-- Stats Cards -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <p>Total Due</p>
+                    <div class="amount due">$0</div> <!-- JS দিয়ে আপডেট হবে -->
+                </div>
+                <div class="stat-card">
+                    <p>Total Payment</p>
+                    <div class="amount advance">$0</div> <!-- JS দিয়ে আপডেট হবে -->
+                </div>
+            </div>
+
+            <!-- index.html ফাইলের Quick Actions সেকশন -->
+            <div class="quick-actions">
+                <div id="home-add-customer-btn" class="action-button">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <span>Add Customer</span>
+                </div>
+                <div id="home-add-transaction-btn" class="action-button">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Add Transaction</span>
+                </div>
+                <div id="home-add-product-btn" class="action-button">
+                    <i class="fa-solid fa-box"></i>
+                    <span>Add Product</span>
+                </div>
+            </div>
+
+            <!-- Recent Transactions List -->
+            <div class="recent-transactions">
+                <h2>Recent Transactions</h2>
+                <table class="transaction-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th class="amount-col">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Transactions will be dynamically rendered here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+
+        <!-- Bottom Navigation Bar -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item active">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+            <a href="customers.html" class="nav-item">
+                <i class="fa-solid fa-users"></i>
+                <span>Customers</span>
+            </a>
+            <a href="stock.html" class="nav-item">
+                <i class="fa-solid fa-box-archive"></i>
+                <span>Stock</span>
+            </a>
+            <a href="reports.html" class="nav-item">
+                <i class="fa-solid fa-chart-bar"></i>
+                <span>Reports</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <i class="fa-solid fa-cog"></i>
+                <span>Settings</span>
+            </a>
+        </nav>
+    </div>
+    <!-- Add Customer Modal (From customers.html) -->
+    <div id="add-customer-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Customer</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="add-customer-form">
+                    <div class="form-group">
+                        <label for="home-customer-name">Customer Name</label>
+                        <input type="text" id="home-customer-name" placeholder="Enter full name" required>
+                    </div>
+                    <div id="balance-group" class="form-group">
+                        <label for="home-customer-balance">Opening Balance (Optional)</label>
+                        <input type="number" id="home-customer-balance" placeholder="0">
+                        <small>Use a positive value for due (e.g., 500) and a negative value for payment (e.g., -200).</small>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="button-primary">Save Customer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Product Modal (From stock.html) -->
+    <div id="add-product-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Product</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="add-product-form">
+                    <div class="form-group">
+                        <label for="home-product-name">Product Name</label>
+                        <input type="text" id="home-product-name" placeholder="Enter product name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="home-product-category">Category</label>
+                        <input type="text" id="home-product-category" placeholder="e.g., Feed, Grains, etc.">
+                    </div>
+                    <div class="form-group">
+                        <label for="home-product-quantity">Opening Quantity</label>
+                        <input type="number" id="home-product-quantity" placeholder="0" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="button-primary">Save Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- External JavaScript File -->
+    <script src="js/main.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
+</body>
+
+</html>

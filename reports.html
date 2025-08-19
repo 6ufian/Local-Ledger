@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Ledger - Reports</title>
+    
+    <!-- External CSS File -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Google Fonts (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body id="reports-page"> <!-- <<<<<<<<<<<<<<<< এই পরিবর্তনটি করা হয়েছে -->
+    
+    <div class="mobile-container">
+        <!-- Top Header -->
+        <header class="app-header page-header">
+            <h1>Reports</h1>
+            <div class="header-icons">
+                <i class="fa-solid fa-filter"></i>
+            </div>
+        </header>
+        
+        <!-- Main Content Area -->
+        <main class="main-content">
+            
+            <div class="date-picker">
+                <span>Overall Performance</span> <!-- তারিখের পরিবর্তে একটি সাধারণ টেক্সট -->
+            </div>
+            
+            <div class="stats-container">
+                <div class="stat-card report-sales">
+                    <p>Total Sales</p>
+                    <div class="amount">$0</div> <!-- JS দিয়ে আপডেট হবে -->
+                </div>
+                <div class="stat-card report-due">
+                    <p>Total Due</p>
+                    <div class="amount">$0</div> <!-- JS দিয়ে আপডেট হবে -->
+                </div>
+            </div>
+            
+            <!-- Sales Chart -->
+            <div class="chart-container">
+                <h3>Sales by Month</h3>
+                <canvas id="salesChart"></canvas>
+            </div>
+            
+            <!-- Dues Chart -->
+            <div class="chart-container">
+                <h3>Top 5 Customers by Due</h3>
+                <canvas id="duesChart"></canvas>
+            </div>
+            
+            <!-- টেবিলটি আপাতত সরিয়ে দেওয়া হলো, কারণ চার্টগুলোই মূল তথ্য দেখাচ্ছে -->
+            
+        </main>
+        
+        <!-- Bottom Navigation Bar -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">
+                <i class="fa-solid fa-house"></i><span>Home</span>
+            </a>
+            <a href="customers.html" class="nav-item">
+                <i class="fa-solid fa-users"></i><span>Customers</span>
+            </a>
+            <a href="stock.html" class="nav-item">
+                <i class="fa-solid fa-box-archive"></i><span>Stock</span>
+            </a>
+            <a href="reports.html" class="nav-item active">
+                <i class="fa-solid fa-chart-bar"></i><span>Reports</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <i class="fa-solid fa-cog"></i><span>Settings</span>
+            </a>
+        </nav>
+    </div>
+    
+    <!-- External JavaScript File -->
+    <script src="js/main.js"></script>
+</body>
+</html>

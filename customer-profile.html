@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Profile</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<!-- এই পেজটি সনাক্ত করার জন্য body-তে id যোগ করা হয়েছে -->
+
+<body id="customer-profile-page">
+
+    <div class="mobile-container">
+        <header class="app-header page-header">
+            <a href="customers.html" class="back-button"><i class="fa-solid fa-arrow-left"></i></a>
+            <h1 id="profile-customer-name">Loading...</h1>
+            <div class="header-menu">
+                <i class="fa-solid fa-ellipsis-vertical menu-icon"></i>
+                <div class="dropdown-menu">
+                    <a href="#" id="edit-customer-btn"><i class="fa-solid fa-pen-to-square"></i> Edit Customer</a>
+                    <a href="#" id="delete-customer-btn"><i class="fa-solid fa-trash"></i> Delete Customer</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="profile-summary">
+                <div class="profile-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div id="profile-balance-summary" class="balance-summary">
+                    <!-- Balance will be loaded here -->
+                </div>
+
+                <div class="profile-actions">
+                    <button class="button-primary add-transaction-btn">
+                        <i class="fa-solid fa-plus"></i> Transaction
+                    </button>
+                    <button id="sell-product-btn" class="button-primary">
+                        <i class="fa-solid fa-cart-shopping"></i> Sell Product
+                    </button>
+                </div>
+            </div>
+
+            <div class="transaction-history">
+                <h3>Transaction History</h3>
+                <div id="transaction-list-container">
+                    <!-- Transaction list will be loaded here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Transaction Modal -->
+    <div id="add-transaction-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Transaction</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <!-- customer-profile.html -> add-transaction-modal -> form -->
+                <form id="add-transaction-form">
+                    <!-- Transaction Type রেডিও বাটনগুলো সরিয়ে দেওয়া হলো -->
+
+                    <div class="form-group">
+                        <label for="transaction-amount">Total Amount</label>
+                        <input type="number" id="transaction-amount" placeholder="Enter total transaction amount">
+                        <small>Leave blank if you are only receiving a payment.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="transaction-cash-received">Cash Received (Optional)</label>
+                        <input type="number" id="transaction-cash-received" placeholder="Enter amount paid by customer">
+                        <small>If the customer paid something now, enter it here.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="transaction-note">Note (Optional)</label>
+                        <textarea id="transaction-note" rows="2" placeholder="e.g., Purchase of goods, Service charge"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="transaction-date">Date</label>
+                        <input type="date" id="transaction-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="button-primary">Save Transaction</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sell Product Modal -->
+    <div id="sell-product-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- গ্রাহকের নাম এখানে JS দিয়ে বসানো হবে -->
+                <h2>Sell Product to <span id="sell-customer-name" style="color: var(--primary-blue);"></span></h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="sell-product-form">
+                    <div class="form-group">
+                        <label for="product-select">Select Product</label>
+                        <select id="product-select" required>
+                            <option value="">-- Choose a product --</option>
+                            <!-- Product list will be dynamically loaded here by JavaScript -->
+                        </select>
+                    </div>
+
+                    <!-- পণ্য সিলেক্ট করার পর এখানে তার তথ্য দেখানো হবে -->
+                    <div id="product-info-display" class="product-info-box" style="display: none;"></div>
+
+                    <div class="form-group">
+                        <label for="sell-quantity">Quantity to Sell</label>
+                        <input type="number" id="sell-quantity" placeholder="0" required>
+                    </div>
+                    <div id="total-bill-display" class="product-info-box" style="display: none; background-color: #d1ecf1;">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cash-received">Cash Received (Optional)</label>
+                        <input type="number" id="cash-received" placeholder="Enter amount if paid">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="button-primary">Complete Sale</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

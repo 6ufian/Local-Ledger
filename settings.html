@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Ledger - Settings</title>
+
+    <!-- External CSS File -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Fonts (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body id="settings-page"> <!-- পেজ সনাক্ত করার জন্য id -->
+
+    <div class="mobile-container">
+        <!-- Top Header -->
+        <header class="app-header page-header">
+            <h1>Settings</h1>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            
+            <div class="settings-menu">
+                <!-- Language (Future feature) -->
+                <a href="#" class="settings-item disabled">
+                    <i class="icon fa-solid fa-globe"></i>
+                    <div class="text-content">
+                        <div class="title">Language</div>
+                    </div>
+                    <i class="arrow fa-solid fa-chevron-right"></i>
+                </a>
+                
+                <!-- Theme (Future feature) -->
+<div class="settings-item">
+    <i class="icon fa-solid fa-sun"></i>
+    <div class="text-content">
+        <div class="title">Dark Theme</div>
+    </div>
+    <label class="theme-switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+    </label>
+</div>
+            </div>
+            
+            <!-- Backup and Restore Section -->
+            <div class="settings-menu">
+                <div id="backup-btn" class="settings-item" style="cursor: pointer;">
+                    <i class="icon fa-solid fa-download"></i>
+                    <div class="text-content">
+                        <div class="title">Backup Data</div>
+                        <div class="subtitle">Save all data to a JSON file</div>
+                    </div>
+                </div>
+                <div id="restore-btn" class="settings-item" style="cursor: pointer;">
+                    <i class="icon fa-solid fa-upload"></i>
+                    <div class="text-content">
+                        <div class="title">Restore Data</div>
+                        <div class="subtitle">Load data from a backup file</div>
+                    </div>
+                    <!-- ফাইল আপলোড করার জন্য গোপন ইনপুট -->
+                    <input type="file" id="restore-file-input" style="display: none;" accept=".json">
+                </div>
+            </div>
+            
+            <div class="settings-menu">
+                <!-- App Info (Future feature) -->
+                <a href="#" class="settings-item disabled">
+                    <i class="icon fa-solid fa-info-circle"></i>
+                    <div class="text-content">
+                        <div class="title">App Info</div>
+                    </div>
+                    <i class="arrow fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+
+        </main>
+
+        <!-- Bottom Navigation Bar -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">
+                <i class="fa-solid fa-house"></i><span>Home</span>
+            </a>
+            <a href="customers.html" class="nav-item">
+                <i class="fa-solid fa-users"></i><span>Customers</span>
+            </a>
+            <a href="stock.html" class="nav-item">
+                <i class="fa-solid fa-box-archive"></i><span>Stock</span>
+            </a>
+            <a href="reports.html" class="nav-item">
+                <i class="fa-solid fa-chart-bar"></i><span>Reports</span>
+            </a>
+            <a href="settings.html" class="nav-item active">
+                <i class="fa-solid fa-cog"></i><span>Settings</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- External JavaScript File -->
+    <script src="js/main.js"></script>
+</body>
+</html>
